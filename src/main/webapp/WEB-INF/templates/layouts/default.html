@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+      <head>
+            <title>Learning</title>
+            <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+            <script type="application/javascript" src="/js/jquery-3.1.1.min.js"/>
+
+            <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+            <link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.min.css"/>
+            <link rel="stylesheet" type="text/css" href="/css/awesome/css/font-awesome.min.css"/>
+            <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+
+            <script src="/js/bootstrap.js" />
+      </head>
+      <body>
+      <nav class="navbar navbar-default" role="navigation">
+            <ul class="nav navbar-nav">
+                  <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/user/users.html">Пользователи</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                  <li><a sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')"
+                         href="/logout.html">Выход <span sec:authentication="name"></span></a></li>
+            </ul>
+      </nav>
+      <div class="panel panel-heading">
+
+            </div>
+            <ul>
+                  <li th:if="${errors!=null}" th:each="err : ${errors}" th:text="${err.defaultMessage}" />
+            </ul>
+            <div id="content" layout:fragment="content">qweqweqwe</div>
+      </body>
+
+      <script th:inline="javascript" sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')">
+            //<![CDATA[
+            $(document).ready(function() {
+                  var checked = false;
+                  $("form").submit(function(e){
+                        var form = this;
+                        //$(form).hide();
+                        if (checked == false){
+                              checked = true;
+                              form.submit();
+                        }
+                  });
+            });
+            //]]>
+      </script>
+</html>

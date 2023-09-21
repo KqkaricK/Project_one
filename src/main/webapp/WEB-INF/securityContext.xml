@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <http pattern="/common/**" security="none"/>
+    <http pattern="/favicon.ico" security="none"/>
+    <http pattern="/images/**" security="none"/>
+    <http pattern="/error*" security="none"/>
+    <http pattern="/css/**" security="none"/>
+    <http pattern="/js/**" security="none"/>
+    <http pattern="/fonts/**" security="none"/>
+
+    <http auto-config="false" use-expressions="true" request-matcher="ant">
+        <intercept-url pattern="/login.htm*" access="isAnonymous() or hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/user/**"  access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')" />
+        <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+
+        <form-login login-page="/login.html"
+                    always-use-default-target="false"
+                    default-target-url="/user/users.html"
+                    login-processing-url="/j_spring_security_check"
+                    password-parameter="j_password"
+                    username-parameter="j_username"
+                    authentication-failure-url="/login.html?error=1"/>
+
+        <anonymous enabled="true"
+                   granted-authority="ROLE_ANONYMOUS"
+                   key="hky8rpMaY1VuuX+"
+                   username="anonymous" />
+
+        <session-management session-fixation-protection="migrateSession" />
+
+        <logout logout-url="/logout.html"
+                logout-success-url="/login.html"
+                invalidate-session="true" />
+    </http>
+
+
+    <authentication-manager>
+        <authentication-provider user-service-ref="userDetailsService">
+        </authentication-provider>
+    </authentication-manager>
+
+    <beans:bean id="userDetailsService"
+                class="com.learning.dao.UserDaoImpl" >
+        <beans:property name="dataSource" ref="dataSource"/>
+    </beans:bean>
+
+    <beans:bean id="anonymousAuthenticationProvider" class="org.springframework.security.authentication.AnonymousAuthenticationProvider">
+        <beans:property name="key" value="hky8rpMaY1VuuX+"/>
+    </beans:bean>
+
+</beans:beans>

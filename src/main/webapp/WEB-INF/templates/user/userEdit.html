@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorator="layouts/default">
+    <head>
+        <title>Редактирование пользователя</title>
+    </head>
+    <div layout:fragment="content">
+        <div class="col-sm-12">
+        <form action="#" th:action="@{/user/userEdit.html}" th:object="${command}" method="post" class="form-horizontal">
+            <input type="hidden" th:field="*{userId}" />
+            <input type="hidden" th:field="*{userRole}" />
+
+            <div class="panel panel-default">
+                <div class="panel-heading initialism">
+                    Редактирование пользователя
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">
+                            Имя пользователя:
+                        </label>
+                        <div class="col-sm-3">
+                            <input type="text" th:field="*{username}" th:class="${#fields.hasErrors('username')}? 'fieldError form-control' : 'form-control'" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">
+                            Пароль:
+                        </label>
+                        <div class="col-sm-3">
+                            <input type="password" th:field="*{password}" th:class="${#fields.hasErrors('password')}? 'fieldError form-control' : 'form-control'"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">
+                            Email:
+                        </label>
+                        <div class="col-sm-3">
+                            <input type="text" th:field="*{email}" th:class="${#fields.hasErrors('email')}? 'fieldError form-control' : 'form-control'"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" title="Вкл/Выкл" for="enabled">
+                            Вкл/Выкл
+                        </label>
+                        <div class="col-sm-3">
+                            <input type="checkbox" th:field="*{enabled}" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-4">
+                            <input class="btn btn-primary" type="submit" value="Сохранить" name="_save"/>
+                            <input class="btn btn-primary" type="submit" value="Отменить" name="_cancel"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>  
+</html>

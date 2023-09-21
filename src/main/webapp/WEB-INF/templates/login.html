@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorator="layouts/default">
+    <head>
+        <title>Вход в систему</title>
+    </head>
+    <div layout:fragment="content">
+        <div class="col-xs-12">
+            <div class="text-center" th:if="${error != null}">
+                <div class="alert alert-danger">Некорректное имя пользователя или пароль</div>
+            </div>
+            <div class="col-sm-offset-4 col-sm-4">
+                <form id="command" action="/j_spring_security_check" method="post" class="form-horizontal">
+                    <div class="panel panel-default">
+                        <div class="panel-heading initialism">
+                            Вход
+                        </div>
+                        <div class="panel-body">
+                                <div class="text-center">
+                                    <div class="form-group">
+                                        Ваше имя (логин)
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <input id="j_username" name="j_username" class="form-control text-center" type="text" value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        Ваш пароль
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <input id="j_password" name="j_password" class="form-control text-center" type="password" value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="panel-button">
+                                        <button class="btn btn-md btn-success" type="submit">Войти</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</html>

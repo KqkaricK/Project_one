@@ -1,0 +1,150 @@
+plugins {
+    id "java"
+    id "war"
+    id "com.github.ben-manes.versions" version "0.42.0"
+    id "project-report"
+}
+
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url "https://repo.spring.io/release" }
+}
+
+dependencyUpdates.resolutionStrategy = {
+    componentSelection { rules ->
+        rules.all { ComponentSelection selection ->
+            boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm', 'pr'].any { qualifier ->
+                selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
+            }
+            if (rejected) {
+                selection.reject('Release candidate')
+            }
+            if (selection.candidate.group == 'org.apache.tomcat' && selection.candidate.version == '10.0.0') {
+                selection.reject("Exclude Tomcat 10'")
+            }
+            if (selection.candidate.group == 'commons-beanutils' &&
+                    selection.candidate.module == 'commons-beanutils' &&
+                    selection.candidate.version ==~ /(?i).*\d{4,9}([.-]\d{4,9})?/) {
+                selection.reject("Exclude old 'commons-beanutils'")
+            }
+            if (selection.candidate.group == 'commons-codec' &&
+                    selection.candidate.module == 'commons-codec' &&
+                    selection.candidate.version ==~ /(?i).*\d{4,9}([.-]\d{4,9})?/) {
+                selection.reject("Exclude old 'commons-codec'")
+            }
+        }
+    }
+}
+
+project.ext {
+    springFrameworkVersion = "4.3.3.RELEASE"
+    springSecurityVersion = "3.2.5.RELEASE"
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+compileJava.options.encoding = "UTF-8"
+
+
+dependencies {
+    // Servlet API, JSP API, JSP EL API , tomcat implementation  http://tomcat.apache.org/
+    providedCompile "org.apache.tomcat:jsp-api:6.0.53"
+    providedCompile "org.apache.tomcat:el-api:6.0.53"
+    providedCompile "org.apache.tomcat:servlet-api:6.0.53"
+
+// https://mvnrepository.com/artifact/aopalliance/aopalliance
+    implementation 'aopalliance:aopalliance:1.0'
+// https://mvnrepository.com/artifact/org.attoparser/attoparser
+    implementation 'org.attoparser:attoparser:2.0.0.RELEASE'
+
+    // c3p0 - JDBC3 Connection and Statement Pooling https://www.mchange.com/projects/c3p0/
+    implementation "com.mchange:c3p0:0.9.5.5"
+    runtimeOnly "com.mchange:mchange-commons-java:0.2.20"
+
+    implementation 'commons-beanutils:commons-beanutils:1.8.0'
+    implementation 'org.apache.commons:commons-collections4:4.1'
+    implementation 'commons-digester:commons-digester:2.0'
+    implementation 'commons-io:commons-io:2.4'
+    implementation 'org.apache.commons:commons-lang3:3.4'
+    implementation 'commons-logging:commons-logging:1.2'
+
+    implementation 'org.codehaus.groovy:groovy-all:2.4.7'
+
+    runtimeOnly 'mysql:mysql-connector-java:8.0.29'
+
+    // Simple Logging Facade for Java (SLF4J) https://www.slf4j.org/
+    implementation 'org.slf4j:slf4j-api:1.7.36'
+    implementation 'org.slf4j:slf4j-simple:1.7.36'
+    implementation 'org.slf4j:jcl-over-slf4j:1.7.36'
+    implementation 'org.slf4j:jul-to-slf4j:1.7.36'
+
+
+    //spring Framework https://spring.io/projects/spring-framework
+    implementation "org.springframework:spring-aop:${springFrameworkVersion}"
+    implementation "org.springframework:spring-aspects:${springFrameworkVersion}"
+    implementation "org.springframework:spring-beans:${springFrameworkVersion}"
+    implementation "org.springframework:spring-context:${springFrameworkVersion}"
+    implementation "org.springframework:spring-context-support:${springFrameworkVersion}"
+    implementation "org.springframework:spring-core:${springFrameworkVersion}"
+    implementation "org.springframework:spring-expression:${springFrameworkVersion}"
+    implementation "org.springframework:spring-jdbc:${springFrameworkVersion}"
+    implementation "org.springframework:spring-orm:${springFrameworkVersion}"
+    implementation "org.springframework:spring-oxm:${springFrameworkVersion}"
+    implementation "org.springframework:spring-tx:${springFrameworkVersion}"
+    implementation "org.springframework:spring-test:${springFrameworkVersion}"
+    implementation "org.springframework:spring-web:${springFrameworkVersion}"
+    implementation "org.springframework:spring-webmvc:${springFrameworkVersion}"
+
+    implementation "org.aspectj:aspectjweaver:1.8.9"
+
+
+
+    // Spring Security https://spring.io/projects/spring-security
+    implementation "org.springframework.security:spring-security-acl:${springSecurityVersion}"
+    implementation "org.springframework.security:spring-security-config:${springSecurityVersion}"
+    implementation "org.springframework.security:spring-security-core:${springSecurityVersion}"
+    implementation "org.springframework.security:spring-security-taglibs:${springSecurityVersion}"
+    implementation "org.springframework.security:spring-security-web:${springSecurityVersion}"
+
+
+    // https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf
+    implementation 'org.thymeleaf:thymeleaf:2.1.5.RELEASE'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4:2.1.2.RELEASE'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.4.0'
+
+    implementation 'org.thymeleaf:thymeleaf-spring4:2.1.5.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.unbescape/unbescape
+    implementation 'org.unbescape:unbescape:1.0'
+
+
+}
+
+configurations.all {
+    transitive = false
+
+    exclude module: "commons-logging"
+
+    test {
+        exclude '*'
+    }
+
+    resolutionStrategy {
+        // fail eagerly on version conflict (includes transitive dependencies)
+        // e.g. multiple different versions of the same dependency (group and name are equal)
+        failOnVersionConflict()
+
+        // prefer modules that are part of this build (multi-project or composite build) over external modules
+        preferProjectModules()
+
+        // force certain versions of dependencies (including transitive)
+        //force "org.springframework:spring-core:${springFrameworkVersion}"
+
+        // cache dynamic versions for 10 minutes
+        cacheDynamicVersionsFor 10 * 60, "seconds"
+        // don't cache changing modules at all
+        cacheChangingModulesFor 0, "seconds"
+    }
+}

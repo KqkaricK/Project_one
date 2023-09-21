@@ -1,0 +1,52 @@
+body {
+
+}
+
+th{
+    background : #3675AB;
+    color : #fff;
+    font-weight: normal;
+}
+
+.panel-default>.panel-heading{
+    background : #3675AB;
+    color : #fff;
+}
+
+.action-button{
+    width : 100px;
+}
+
+.action-button-remove{
+    width: 40px;
+}
+
+.fa{
+    font-size: 19px;
+}
+
+.fa-remove{
+    color : red;
+}
+
+.fa-edit{
+    font-size: 18px;
+    color : #3675AB;
+}
+
+.fa-plus-circle{
+    color : #fff;
+}
+
+.fa-id-card{
+    color : #905d04;
+}
+
+.fa-shopping-bag{
+    font-size: 17px;
+    color: #498005;
+}
+
+#totalForNexDay{
+    color: darkblue;
+}

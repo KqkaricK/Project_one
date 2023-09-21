@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorator="layouts/default">
+    <head>
+        <title>Индекс</title>
+    </head>
+    <div layout:fragment="content">
+        <div class="col-xs-12">
+            <div sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')">
+                Что тебе тут делать?
+            </div>
+            <div sec:authorize="hasAnyRole('ROLE_ANONYMOUS')">
+                Для непосвященных пока ничего нет! <a href="/login.html">Посвятиться?</a>
+            </div>
+        </div>
+    </div>
+</html>
