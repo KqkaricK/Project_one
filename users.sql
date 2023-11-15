@@ -18,18 +18,16 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for `users`
 -- ----------------------------
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `role` varchar(45) NOT NULL,
-  `enabled` tinyint(4) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`user_id`)
+DROP TABLE IF EXISTS `post`;
+CREATE TABLE `post` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `anons` tinytext NOT NULL,
+  `ful_text` mediumtext DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'admin', 'admin', null, 'ROLE_ADMIN', '1');
+INSERT INTO `post` VALUES ('1', 'Что-то', 'Кратко', 'чтооооооооооооооо-тоооооооооооооо длииииииииииинооооооооооооооооое');
