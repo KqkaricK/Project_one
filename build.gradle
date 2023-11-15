@@ -49,6 +49,8 @@ compileJava.options.encoding = "UTF-8"
 
 
 dependencies {
+    implementation 'org.jetbrains:annotations:20.1.0'
+
     // Servlet API, JSP API, JSP EL API , tomcat implementation  http://tomcat.apache.org/
     providedCompile "org.apache.tomcat:jsp-api:6.0.53"
     providedCompile "org.apache.tomcat:el-api:6.0.53"
@@ -117,8 +119,12 @@ dependencies {
     implementation 'org.thymeleaf:thymeleaf-spring4:2.1.5.RELEASE'
 
     // https://mvnrepository.com/artifact/org.unbescape/unbescape
-    implementation 'org.unbescape:unbescape:1.0'
+    implementation 'org.unbescape:unbescape:1.1.6.RELEASE'
 
+    implementation 'org.hibernate:hibernate-core:6.1.5.Final'
+    implementation 'javax.persistence:javax.persistence-api:2.2'
+    implementation "org.springframework.data:spring-data-commons-core:1.4.1.RELEASE"
+    implementation "org.springframework.boot:spring-boot-starter-thymeleaf:2.7.6"
 
 }
 
