@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorator="layouts/default">
+<head>
+    <title>Редактирование пользователя</title>
+</head>
+<div layout:fragment="content">
+
+        <div class="container mt-5 mb-5">
+            <form action="#" th:action="@{/blog_add.html}" th:object="${command}" method="post" class="form-horizontal">
+                <input type="hidden" th:field="*{id}" />
+                <h1>Редактирование/добавление статьи</h1>
+                <input type="text" th:field="*{title}"  placeholder="Название статьи" class="form-control"/>
+                <input type="text" th:field="*{anons}" placeholder="Анонс статьи" class="form-control"/>
+                <textarea type="text" th:field="*{ful_text}" placeholder="Текст статьи" class="form-control"/>
+                <input class="btn btn-primary" type="submit" value="Сохранить" name="_save"/>
+                <input class="btn btn-primary" type="submit" value="Отменить" name="_cancel"/>
+            </form>
+        </div>
+
+</div>
+</html>

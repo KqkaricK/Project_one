@@ -13,11 +13,17 @@
             <link rel="stylesheet" type="text/css" href="/css/style.css"/>
 
             <script src="/js/bootstrap.js" />
+
       </head>
       <body>
       <nav class="navbar navbar-default" role="navigation">
+
             <ul class="nav navbar-nav">
                   <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/user/users.html">Пользователи</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+                  <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/blog_add.html">Посты</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
@@ -25,6 +31,17 @@
                          href="/logout.html">Выход <span sec:authentication="name"></span></a></li>
             </ul>
       </nav>
+
+      <div class="container">
+            <header class="d-flex justify-content-center bd-highlight mb-3">
+                  <ul class="nav nav-tabs">
+                        <li class="nav-item"><a href="/index.html" class="nav-link" aria-current="page">Главная</a></li>
+                        <li class="nav-item"><a href="/blog.html" class="nav-link">Блог</a></li>
+                        <li class="nav-item"><a href="/login.html" class="nav-link">Вход</a></li>
+                  </ul>
+            </header>
+      </div>
+
       <div class="panel panel-heading">
 
             </div>
