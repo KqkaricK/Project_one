@@ -21,9 +21,4 @@ public class LoginController {
         model.addAttribute("error",error);
         return "login";
     }
-
-    @RequestMapping({"", "/", "/index.html"})
-    public String getAdminForm(){
-        return "index";
-    }
 }
