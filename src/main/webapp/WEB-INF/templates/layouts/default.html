@@ -19,11 +19,11 @@
       <nav class="navbar navbar-default" role="navigation">
 
             <ul class="nav navbar-nav">
-                  <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/user/users.html">Пользователи</a></li>
+                  <li><a sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')" href="/user/users.html">Пользователи</a></li>
             </ul>
 
             <ul class="nav navbar-nav">
-                  <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/blog_add.html">Посты</a></li>
+                  <li><a sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')" href="/blog_add.html">Добавить Статью</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

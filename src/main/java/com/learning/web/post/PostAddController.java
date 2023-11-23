@@ -22,33 +22,34 @@ public class PostAddController {
     @RequestMapping(value = "/blog_add.html", method = RequestMethod.GET)
     public String onGet(
             Model model,
-            @RequestParam(required = false) Integer Id
+            @RequestParam(required = false) Integer postId
     ) {
-
-        Post command = postRepository.getPostById(Id);
-        if (command==null){
+        Post command = postRepository.getPostById(postId);
+        if (command == null) {
             command = new Post();
         }
         model.addAttribute("command", command);
         return "blog_add";
     }
 
+
     @RequestMapping(value = "/blog_add.html", method = RequestMethod.POST, params = "!_cancel")
     public String onPost(
             Model model,
             @ModelAttribute("command") Post command,
-            BindingResult result){
+            BindingResult result) {
 
         postEditValidator.validate(command, result);
         if (!result.hasErrors()) {
             postRepository.saveOrUpdate(command);
-        }else {
+        } else {
             model.addAttribute("errors", result.getAllErrors());
             model.addAttribute("command", command);
             return "blog_add.html";
         }
-        return "redirect:blog_add.html?Id=" + command.getId();
+        return "redirect:/blog_add.html?id=" + command.getId();
     }
+
 
     @RequestMapping(value = "/blog_add.html", method = RequestMethod.POST, params = "_cancel")
     public String onCancel() {

@@ -8,6 +8,11 @@ import com.learning.util.paginated.SimplePaginatedForm;
 public class PostForm extends SimplePaginatedForm {
     private String post;
 
+    public PostForm() {
+        super();
+        setPageSize(3);
+    }
+
     public String getPost() {
         return post;
     }
@@ -15,4 +20,5 @@ public class PostForm extends SimplePaginatedForm {
     public void setPost(String post) {
         this.post = post;
     }
+
 }

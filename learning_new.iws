@@ -20,6 +20,14 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -38,6 +46,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -63,6 +72,12 @@
       <workItem from="1699793401843" duration="613000" />
       <workItem from="1699967587770" duration="2876000" />
       <workItem from="1700033345849" duration="879000" />
+      <workItem from="1700582209650" duration="4178000" />
+      <workItem from="1700621383372" duration="4058000" />
+      <workItem from="1700661033529" duration="145000" />
+      <workItem from="1700665061775" duration="5139000" />
+      <workItem from="1700711065713" duration="10405000" />
+      <workItem from="1700722597205" duration="348000" />
     </task>
     <servers />
   </component>

@@ -16,35 +16,46 @@ import java.util.List;
 @Repository("PostRepository")
 public class PostRepositoryImpl extends BasePostImpl implements PostRepository {
 
-    public SimplePaginatedList getPost (PostForm form){
-        String sql = "select count(distinct u.id) from post u";
-        String filt = "";
-        if (StringUtils.isNotBlank(form.getPost()))
-            filt += " where u.title LIKE '%" + form.getPost() + "'%";
-        sql = sql + filt;
+    public SimplePaginatedList getPost(PostForm form) {
+        StringBuilder sql = new StringBuilder("SELECT COUNT(DISTINCT u.id) FROM post u");
+        StringBuilder filt = new StringBuilder();
+
+        if (StringUtils.isNotBlank(form.getPost())) {
+            filt.append(" WHERE ");
+            filt.append("u.title LIKE '%").append(form.getPost()).append("%' OR ");
+            filt.append("u.anons LIKE '%").append(form.getPost()).append("%' OR ");
+            filt.append("u.ful_text LIKE '%").append(form.getPost()).append("%'");
+        }
+
+        sql.append(filt);
+
         int total = -1;
+
         if (form.getPageSize() != -1) {
-            total = getJdbcTemplate().queryForObject(sql, Integer.class);
+            total = getJdbcTemplate().queryForObject(sql.toString(), Integer.class);
             form.fixPageNumber(total);
         }
 
-        StringBuilder sql2 = new StringBuilder();
-
-        sql2.append("select * from post u " + filt);
+        StringBuilder sql2 = new StringBuilder("SELECT * FROM post u");
+        sql2.append(filt);
 
         if (form.getPageSize() > 0) {
-            sql2.append(" \nlimit ");
+            sql2.append("\nLIMIT ");
             if (form.getFirstResult() > 0)
-                sql2.append(form.getFirstResult())
-                        .append(", ");
+                sql2.append(form.getFirstResult()).append(", ");
             sql2.append(form.getPageSize());
         }
 
         List list = getJdbcTemplate().query(sql2.toString(), new PostMapper());
-        if (total == -1)
+
+
+        if (total == -1) {
             total = list.size();
+        }
+
         return PaginatedListHelper.getPaginatedList(list, total, form);
     }
+
 
     public Post getPostById(Integer Id) {
         PostMapper postmapper = new PostMapper();
@@ -85,6 +96,12 @@ public class PostRepositoryImpl extends BasePostImpl implements PostRepository {
                 post.setId(keyHolder.getKey().intValue());
             }
         }
+    }
+
+    @Override
+    public void deletePost(Integer postId) {
+        String sql = "DELETE FROM post WHERE id = ?";
+        getJdbcTemplate().update(sql, new Object[]{postId});
     }
 }
 

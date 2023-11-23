@@ -35,4 +35,18 @@ public class PostController {
         return "blog";
     }
 
+    @RequestMapping("/blog/deletePost.html")
+    public String deletePost(@RequestParam(required = false) Integer postId) {
+        if (postId != null) {
+            postRepository.deletePost(postId);
+        }
+        return "redirect:/blog.html";
+    }
+
+    @RequestMapping("/blog/editPost.html")
+    public String editPost(Model model, @RequestParam(required = false) Integer postId) {
+        Post post = postRepository.getPostById(postId);
+        model.addAttribute("command", post);
+        return "blog_add";
+    }
 }

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="learning_new:test" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <datasource-mapping />
+        <naming-strategy-map />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager">
+    <output-test url="file://$MODULE_DIR$/out/test/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/src/test" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="learning_new.main" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:20.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.attoparser:attoparser:2.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: com.mchange:c3p0:0.9.5.5" level="project" />
+    <orderEntry type="library" name="Gradle: commons-beanutils:commons-beanutils:1.8.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.commons:commons-collections4:4.1" level="project" />
+    <orderEntry type="library" name="Gradle: commons-digester:commons-digester:2.0" level="project" />
+    <orderEntry type="library" name="Gradle: commons-io:commons-io:2.4" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.commons:commons-lang3:3.4" level="project" />
+    <orderEntry type="library" name="Gradle: org.codehaus.groovy:groovy-all:2.4.7" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.36" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-simple:1.7.36" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:jcl-over-slf4j:1.7.36" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:jul-to-slf4j:1.7.36" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-aop:4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-aspects:4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-beans:4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-context:4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-context-support:4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-core:4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-expression:4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-jdbc:4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-orm:4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-oxm:4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-tx:4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-test:4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-web:4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-webmvc:4.3.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.aspectj:aspectjweaver:1.8.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-acl:3.2.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-config:3.2.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-core:3.2.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-taglibs:3.2.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-web:3.2.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.thymeleaf:thymeleaf:2.1.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.thymeleaf.extras:thymeleaf-extras-springsecurity4:2.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.4.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.thymeleaf:thymeleaf-spring4:2.1.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.unbescape:unbescape:1.1.6.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: javax.persistence:javax.persistence-api:2.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.data:spring-data-commons-core:1.4.1.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-thymeleaf:2.7.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.tomcat:jsp-api:6.0.53" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.tomcat:el-api:6.0.53" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.tomcat:servlet-api:6.0.53" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.mchange:mchange-commons-java:0.2.20" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: mysql:mysql-connector-java:8.0.29" level="project" />
+  </component>
+  <component name="TestModuleProperties" production-module="learning_new.main" />
+</module>

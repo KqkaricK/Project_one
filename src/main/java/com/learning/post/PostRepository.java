@@ -14,5 +14,6 @@ public interface PostRepository  {
 
     void saveOrUpdate(Post post);
 
+    void deletePost(Integer postId);
 }
 
