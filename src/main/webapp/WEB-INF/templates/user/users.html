@@ -4,6 +4,7 @@
       layout:decorator="layouts/default">
     <head>
         <title>Список пользователей</title>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </head>
     <div layout:fragment="content">
         <script>
@@ -40,33 +41,214 @@
                     </div>
                 </div>
             </form>
-
-
             <div th:include='layouts/pagination :: paginationbar' ></div>
-            <table class="table table-striped">
-                <thead>
+            <div id="listUsers">
+                <table class="table table-striped">
+                    <thead bgcolor="#3675AB">
                     <tr>
-                        <th class="action-button">
-                            <a sec:authorize="hasRole('ROLE_ADMIN')" href="/user/storeEdit.html"
-                               th:href="@{'/user/userEdit.html?userId='}"><i sec:authorize="hasRole('ROLE_ADMIN')" class="fa fa-plus-circle" aria-hidden="true" title="Добавить"></i></a>
+                        <th>
+                            <button sec:authorize="hasRole('ROLE_ADMIN')" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userModal" ><i class="bi bi-plus-circle"></i></button>
                         </th>
+                        <th></th>
                         <th>Имя пользователя</th>
                     </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="user : ${list.list}">
-                        <td >
-                            <a sec:authorize="hasRole('ROLE_ADMIN')" href="/user/storeEdit.html"
-                               th:href="@{'/user/userEdit.html?userId=' + ${user.userId}}"><i class='fa fa-pencil' aria-hidden='true' title="Редактировать"></i></a>
-
-                            <a sec:authorize="hasRole('ROLE_ADMIN')" href="/user/storeDelete.html"
-                               th:href="@{'/user/userDelete.html?userId=' + ${user.userId}}"><i class='fa fa-remove' aria-hidden='true' title="Удалить"></i></a>
-
+                    </thead>
+                    <tbody id="myTable">
+                    <tr th:each="user : ${list.list}" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <td width="10">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userModal" th:data="${user.userId}"><i class="bi bi-pencil"></i></button>
+                        </td>
+                        <td width="10">
+                            <button type="button" class="btn btn-danger"  th:data="${user.userId}"><i class="bi bi-x-circle"></i></button>
                         </td>
                         <td th:text="${user.username}">username</td>
                     </tr>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
+
+            <!--Модальное окно-->
+            <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <div for="userId" class="IdContainer" style="color: green "></div>
+                                    <input type="hidden" id="userId"/>
+                                    <label for="username" class="col-form-label">Имя:</label>
+                                    <div for="username" class="userContainer" style="color: red "></div>
+                                    <input id="username" type="text" class="form-control" />
+                                    <label for="password" class="col-form-label">Пароль:</label>
+                                    <div for="password" class="passwordContainer" style="color: red "></div>
+                                    <input id="password" class="form-control"/>
+                                    <label for="email" class="col-form-label">Email:</label>
+                                    <div for="email" class="emailContainer" style="color: red "></div>
+                                    <input id="email" type="text" class="form-control"/>
+                                    <label for="userRole" class="col-form-label">Роль:</label>
+                                    <select id="userRole" type="text" class="form-control">
+                                        <option value="ROLE_ADMIN">Админ</option>
+                                        <option value="ROLE_USER">Пользователь</option>
+                                        <option value="ROLE_EDITOR">Редактор</option>
+                                    </select>
+                                    <label for="enabled" class="col-form-label"> Вкл/Выкл</label>
+                                    <select id="enabled" type="text" class="form-control">
+                                        <option value="true">Вкл</option>
+                                        <option value="false">Выкл</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="save-user-button" class="btn btn-primary"></button>
+                            <button type="button" id="close-user-button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <script>
+                $(document).ready(function() {
+                    let exampleModal = document.getElementById('userModal')
+                    exampleModal.addEventListener('show.bs.modal', function (event) {
+                        var button = event.relatedTarget
+                        var userId = button.getAttribute('data')
+                        $('#userId').val('');
+                        $('.IdContainer').empty();
+                        if (!button.getAttribute('data')) {
+                            $('#exampleModalLabel').text('Добавить пользователя');
+                            $('#save-user-button').text('Добавить');
+                        }
+                        if (userId) {
+                            $('#exampleModalLabel').text('Изменить данные пользователя');
+                            $('#save-user-button').text('Сохранить');
+                            $.get({
+                                url: '/user/getUser.json?userId=' + userId,
+                                success: (data) => {
+                                    let modal = $(this)
+                                    modal.find('#userId').val(data.userId)
+                                    modal.find('#username').val(data.username)
+                                    modal.find('#password').val(data.password)
+                                    modal.find('#email').val(data.email)
+                                    modal.find('#userRole').val(data.userRole)
+                                    if (data.enabled == true)
+                                        modal.find('#enabled').val("true")
+                                    else
+                                        modal.find('#enabled').val("false")
+                                },
+                                error: (err) => {
+                                    alert('error: ' + err);
+                                }
+                            });
+                        }
+                    })
+
+                    $('#save-user-button').click(function () {
+                        let modal = $('#userModal')
+                        let user = {
+                            userId: modal.find('#userId').val(),
+                            username: modal.find('#username').val(),
+                            password: modal.find('#password').val(),
+                            email: modal.find('#email').val(),
+                            userRole: modal.find('#userRole').val(),
+                            enabled: modal.find('#enabled').val()
+                        };
+                        $('.IdContainer').empty();
+                        $('.userContainer').empty();
+                        $('.passwordContainer').empty();
+                        $('.emailContainer').empty();
+                        $.ajax({
+                            url: '/user/postUser.json',
+                            type: 'POST',
+                            data: JSON.stringify(user),
+                            contentType: "application/json;",
+                            dataType: "json",
+                            success: (response) => {
+                                if (response.errors) {
+                                    $.each(response.errors, function (index, value) {
+                                        if (response.errorCode[index] == "username") {
+                                            $('<p>' + value + '</p>').appendTo('.userContainer');
+                                        }
+                                        ;
+                                        if (response.errorCode[index] == "password") {
+                                            $('<p>' + value + '</p>').appendTo('.passwordContainer');
+                                        }
+                                        ;
+                                        if (response.errorCode[index] == "email") {
+                                            $('<p>' + value + '</p>').appendTo('.emailContainer');
+                                        }
+                                        ;
+                                    });
+                                }
+                                if (response.message) {
+                                    $('<p>' + response.message + '</p>').appendTo('.IdContainer')
+                                }
+                                if (response.message == "Добавленно") {
+                                    if (document.getElementById('myTable').rows.length >= 3) {
+                                        console.log('Количество строк больше трех.');
+                                    } else {
+                                        $("#myTable").append('<tr id="effect"><td ><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userModal" data="'+response.id+'"><i class="bi bi-pencil"></i></button></td><td><button type="button" class="btn btn-danger"  data="'+response.id+'"><i class="bi bi-x-circle"></i></button></td><td>'+modal.find('#username').val()+'</td></tr>');;
+                                        $("#effect").fadeOut(200).fadeIn(200).fadeOut(200).fadeIn(200);
+                                    }
+
+                                    $('#close-user-button').click(function (){
+                                        location.reload();
+                                    })
+                                }
+                                if (response.message == "Исполнено") {
+                                    $('#close-user-button').click(function (){
+                                        location.reload();
+                                    })
+                                }
+                            },
+                            error: (err) => {
+                                console.log(err);
+                            }
+                        })
+                    });
+
+                    $('#userModal').on('hidden.bs.modal', function(){
+                        $(this).find('form')[0].reset();
+                    });
+
+                    $('.btn-danger').click(function () {
+                        var userId = $(this).attr("data")
+                        if (userId) {
+                            swal({
+                                title: "Ты уверен?",
+                                text: "После удаления ты не сможешь восстановить этого пользователя!",
+                                icon: "warning",
+                                buttons: ["Нет", "Да"],
+                                dangerMode: true,
+                            })
+                                .then((willDelete) => {
+                                    if (willDelete) {
+                                        $.ajax({
+                                            url: '/user/deleteUser.json',
+                                            type: 'POST',
+                                            data: JSON.stringify(userId),
+                                            contentType: "application/json;",
+                                            dataType: "json",
+                                            success: (response) => {
+                                                swal("Исполненно", {
+                                                    icon: "success",
+                                                }).then(() => {
+                                                    location.reload();
+                                                });
+                                            },
+                                            error: (err) => {
+                                                alert(err);
+                                            }
+                                        });
+                                    }
+                                });
+                        }
+                    })
+                })
+            </script>
             <div th:include='layouts/pagination :: paginationbar' ></div>
         </div>
     </div>

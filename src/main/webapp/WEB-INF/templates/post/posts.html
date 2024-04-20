@@ -1,0 +1,74 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.w3.org/1999/xhtml"
+      layout:decorator="layouts/default">
+<head>
+  <title>Список статей</title>
+</head>
+<div layout:fragment="content">
+
+  <div class="col-sm-12">
+    <form action="#" th:action="@{/post/posts.html}" th:object="${command}" method="post" class="form-horizontal">
+      <script>
+        //<![CDATA[
+        $(document).ready(function() {
+          $('input[name="_clear"]').click(function(){
+            $('input[type="text"]').val('');
+            $('select').val('');
+          });
+        });
+        //]]>
+      </script>
+      <div class="panel panel-default">
+        <div class="panel-heading initialism">
+          Поиск Статьи
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label class="col-sm-3 control-label">
+              Название статьи:
+            </label>
+            <div class="col-sm-3">
+              <input type="text" th:field="*{post}" class="form-control"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-4">
+            <input class="btn btn-primary btn-sm"  type="submit" value="Поиск"/>
+            <input class="btn btn-primary btn-sm"  type="submit" value="Очистить" name="_clear"/>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+    <div th:include='layouts/pagination :: paginationbar' ></div>
+    <table class="table table-striped">
+      <thead bgcolor="#3675AB">
+      <tr>
+        <th class="action-button">
+          <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EDITOR')" href="/post/postEdit.html"
+             th:href="@{'/post/postEdit.html?Id='}"><i  class="fa fa-plus-circle" aria-hidden="true" title="Добавить"></i></a>
+        </th>
+        <th>Список статей</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="post : ${list.list}">
+        <td >
+          <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EDITOR')" href="/post/postEdit.html"
+             th:href="@{'/post/postEdit.html?Id=' + ${post.id}}"><i class='fa fa-pencil' aria-hidden='true' title="Редактировать"></i></a>
+
+          <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EDITOR')" href="/post/postEdit.html"
+             th:href="@{'/post/postDelete.html?Id=' + ${post.id}}"><i class='fa fa-remove' aria-hidden='true' title="Удалить"></i></a>
+
+        </td>
+        <td th:text="${post.title}">title</td>
+      </tr>
+      </tbody>
+    </table>
+    <div th:include='layouts/pagination :: paginationbar' ></div>
+  </div>
+</div>
+</html>

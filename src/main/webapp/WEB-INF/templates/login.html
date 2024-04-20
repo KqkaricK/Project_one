@@ -43,5 +43,15 @@
                 </form>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                $('#j_username').on('input', function() {
+                    var inputValue = $(this).val().toLowerCase();
+                    if (inputValue === 'rick') {
+                        window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+                    }
+                });
+            });
+        </script>
     </div>
 </html>

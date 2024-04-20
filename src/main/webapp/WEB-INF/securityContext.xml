@@ -17,12 +17,14 @@
 
     <http auto-config="false" use-expressions="true" request-matcher="ant">
         <intercept-url pattern="/login.htm*" access="isAnonymous() or hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')"/>
-        <intercept-url pattern="/user/**"  access="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')" />
+        <intercept-url pattern="/user/**"  access="hasRole('ROLE_ADMIN') or hasRole('ROLE_EDITOR')" />
+        <intercept-url pattern="/post/postEdit.html"  access="hasRole('ROLE_ADMIN') or hasRole('ROLE_EDITOR')" />
+        <intercept-url pattern="/post/posts.html"  access="hasRole('ROLE_ADMIN') or hasRole('ROLE_EDITOR')" />
         <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 
         <form-login login-page="/login.html"
                     always-use-default-target="false"
-                    default-target-url="/user/users.html"
+                    default-target-url="/index.html"
                     login-processing-url="/j_spring_security_check"
                     password-parameter="j_password"
                     username-parameter="j_username"

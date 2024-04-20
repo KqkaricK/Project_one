@@ -1,11 +1,14 @@
 package com.learning.entity;
 
 import groovy.transform.builder.Builder;
+import org.springframework.security.access.prepost.PostAuthorize;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class Post {
@@ -13,6 +16,8 @@ public class Post {
     private String title;
     private String anons;
     private String ful_text;
+
+    private Set userRoles = new HashSet(0);
 
     private boolean enabled;
     public int getId() {

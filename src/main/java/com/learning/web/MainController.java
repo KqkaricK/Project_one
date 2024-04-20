@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 @Controller
 public class MainController {
 
-    @GetMapping({"", "/", "/index.html"})
+    @GetMapping({"", "/", "/index"})
     public String Home(Model model){
         return "index";
     }

@@ -9,24 +9,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3319f91-7d6b-45fc-b771-e03dd4c9769c" name="Changes" comment="" />
+    <list default="true" id="0ef37179-d7c8-4a8d-b4f6-e57e65330481" name="Changes" comment="Json в норме." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
+        <option value="Jsp File" />
+        <option value="JavaScript File" />
+        <option value="AnnotationType" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -38,50 +70,348 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2Y4jqVLjJon4QLjig6JhbDdoiHU" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2MpHaK7CBFMNUyf51EmYV03yLV0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JPA.DatabaseSchemaImportDialog&quot;: &quot;a602df46-da02-4f27-999f-bb12f8b43152&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Tomcat Server.Tomcat 8.5.88.executor&quot;: &quot;Debug&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/andre/Desktop/Project_one&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/skorp942/Desktop/blog&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.4770115&quot;
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/skorp/IdeaProjects/Project_one/src/main/java/com/learning/web/post/PostEditController.java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ],
+    &quot;RunConfigurationTargetLRU&quot;: [
+      &quot;a602df46-da02-4f27-999f-bb12f8b43152&quot;
+    ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.learning.web.blog" />
+      <recent name="com.learning.web.user" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.learning.dao.mapper" />
+      <recent name="com.learning.web.user" />
+      <recent name="com.learning.dto" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.88">
+    <configuration name="users.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/users.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="a602df46-da02-4f27-999f-bb12f8b43152" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Project_one [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Database Script.users.sql" />
+      <item itemvalue="Gradle.Project_one [build]" />
+      <item itemvalue="Tomcat Server.Tomcat 8.5.88" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Database Script.users.sql" />
+        <item itemvalue="Gradle.Project_one [build]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-19.0.2-corretto-19.0.2-4caba194b151-48ba4555" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b3319f91-7d6b-45fc-b771-e03dd4c9769c" name="Changes" comment="" />
-      <created>1699791936832</created>
+      <changelist id="0ef37179-d7c8-4a8d-b4f6-e57e65330481" name="Changes" comment="  &lt;!-- Модальное окно --&gt;" />
+      <created>1678457665506</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1699791936832</updated>
-      <workItem from="1699791938355" duration="1162000" />
-      <workItem from="1699793401843" duration="613000" />
-      <workItem from="1699967587770" duration="2876000" />
-      <workItem from="1700033345849" duration="879000" />
-      <workItem from="1700582209650" duration="4178000" />
-      <workItem from="1700621383372" duration="4058000" />
-      <workItem from="1700661033529" duration="145000" />
-      <workItem from="1700665061775" duration="5139000" />
-      <workItem from="1700711065713" duration="10405000" />
-      <workItem from="1700722597205" duration="444000" />
+      <updated>1678457665506</updated>
+      <workItem from="1678457666645" duration="168000" />
+      <workItem from="1678457840816" duration="56000" />
+      <workItem from="1678457917842" duration="36000" />
+      <workItem from="1678457976288" duration="997000" />
+      <workItem from="1679665276404" duration="152000" />
+      <workItem from="1679669302466" duration="1251000" />
+      <workItem from="1679719561874" duration="1223000" />
+      <workItem from="1679731594183" duration="2996000" />
+      <workItem from="1679745939295" duration="3686000" />
+      <workItem from="1679819748452" duration="7154000" />
+      <workItem from="1679905163784" duration="1816000" />
+      <workItem from="1679920646392" duration="1588000" />
+      <workItem from="1679928378429" duration="726000" />
+      <workItem from="1680426875800" duration="14368000" />
+      <workItem from="1680522709329" duration="4114000" />
+      <workItem from="1680526852461" duration="75000" />
+      <workItem from="1680606717887" duration="1240000" />
+      <workItem from="1680695069182" duration="362000" />
+      <workItem from="1680695483121" duration="3870000" />
+      <workItem from="1680783014216" duration="2463000" />
+      <workItem from="1680785508732" duration="915000" />
+      <workItem from="1680874170192" duration="817000" />
+      <workItem from="1681532865262" duration="546000" />
+      <workItem from="1681533424348" duration="208000" />
+      <workItem from="1681533893121" duration="1278000" />
+      <workItem from="1681539245726" duration="2545000" />
+      <workItem from="1681618662414" duration="4179000" />
+      <workItem from="1681637533070" duration="8006000" />
+      <workItem from="1681729766417" duration="8887000" />
+      <workItem from="1681816155325" duration="9174000" />
+      <workItem from="1681903721252" duration="8556000" />
+      <workItem from="1681994541269" duration="5530000" />
+      <workItem from="1682358362175" duration="67000" />
+      <workItem from="1682399534748" duration="789000" />
+      <workItem from="1682400356656" duration="2901000" />
+      <workItem from="1682441405510" duration="913000" />
+      <workItem from="1682442443231" duration="1373000" />
+      <workItem from="1682485268544" duration="1416000" />
+      <workItem from="1682522827688" duration="290000" />
+      <workItem from="1682952648975" duration="1119000" />
+      <workItem from="1682940293566" duration="5315000" />
+      <workItem from="1682992260064" duration="5775000" />
+      <workItem from="1683008124228" duration="4619000" />
+      <workItem from="1683075378219" duration="2857000" />
+      <workItem from="1683101090800" duration="3102000" />
+      <workItem from="1683161493228" duration="1791000" />
+      <workItem from="1683175301848" duration="6561000" />
+      <workItem from="1684390131890" duration="330000" />
+      <workItem from="1684390797300" duration="9501000" />
+      <workItem from="1709794511909" duration="575000" />
+      <workItem from="1711603720748" duration="88000" />
+      <workItem from="1711603860483" duration="1104000" />
+      <workItem from="1711604988373" duration="158000" />
+      <workItem from="1711605725420" duration="4000" />
+      <workItem from="1711605743457" duration="77000" />
+      <workItem from="1711605976974" duration="18000" />
+      <workItem from="1711606068475" duration="15000" />
+      <workItem from="1712371105026" duration="240000" />
+      <workItem from="1712987679533" duration="1760000" />
+      <workItem from="1712989894637" duration="6781000" />
+      <workItem from="1712996709037" duration="4456000" />
+      <workItem from="1713437958137" duration="2136000" />
+      <workItem from="1713531456679" duration="1378000" />
+      <workItem from="1713591737530" duration="3337000" />
+      <workItem from="1713602891695" duration="2076000" />
+      <workItem from="1713611944922" duration="3369000" />
     </task>
+    <task id="LOCAL-00001" summary="Исправить ошибку с ролью!!!">
+      <created>1678458200899</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678458200899</updated>
+    </task>
+    <task id="LOCAL-00002" summary="  &lt;!-- Модальное окно --&gt;">
+      <created>1679664656690</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679664656690</updated>
+    </task>
+    <task id="LOCAL-00003" summary="  &lt;!-- Модальное окно 0.5 --&gt;">
+      <created>1679670510290</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679670510290</updated>
+    </task>
+    <task id="LOCAL-00004" summary="  &lt;!-- Модальное окно 1.0--&gt;">
+      <created>1679826951257</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679826951257</updated>
+    </task>
+    <task id="LOCAL-00005" summary="GetUser json">
+      <created>1679928416081</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679928416081</updated>
+    </task>
+    <task id="LOCAL-00006" summary="GetUser json">
+      <created>1679928611181</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679928611181</updated>
+    </task>
+    <task id="LOCAL-00007" summary="GetUser json">
+      <created>1679928705083</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679928705083</updated>
+    </task>
+    <task id="LOCAL-00008" summary="GetUser json1">
+      <created>1679928741807</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679928741807</updated>
+    </task>
+    <task id="LOCAL-00009" summary="UserGetJsonController">
+      <created>1679928935897</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679928935897</updated>
+    </task>
+    <task id="LOCAL-00010" summary="PostUser Json&#10;разобраться с закрытием и отчисткой модального окна">
+      <created>1680442209417</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680442209417</updated>
+    </task>
+    <task id="LOCAL-00011" summary="сделать ошибки ввода пользователя и удаление">
+      <created>1680701588139</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680701588139</updated>
+    </task>
+    <task id="LOCAL-00012" summary="сделать ошибки ввода пользователя и удаление (кодировка)">
+      <created>1680874981638</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680874981638</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Json в норме.">
+      <created>1682522976911</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1682522976911</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Исправить ошибку с ролью!!!" />
+    <MESSAGE value="  &lt;!-- Модальное окно --&gt;" />
+    <MESSAGE value="  &lt;!-- Модальное окно 0.5 --&gt;" />
+    <MESSAGE value="  &lt;!-- Модальное окно 1.0--&gt;" />
+    <MESSAGE value="GetUser json 1" />
+    <MESSAGE value="GetUser json" />
+    <MESSAGE value="GetUser json1" />
+    <MESSAGE value="UserGetJsonController" />
+    <MESSAGE value="PostUser Json&#10;разобраться с закрытием и отчисткой модального окна" />
+    <MESSAGE value="сделать ошибки ввода пользователя и удаление" />
+    <MESSAGE value="сделать ошибки ввода пользователя и удаление (кодировка)" />
+    <MESSAGE value="Json в норме." />
+    <option name="LAST_COMMIT_MESSAGE" value="Json в норме." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/learning/web/blog/BlogController.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.learning.dao.UserDaoImpl" memberName="logger" />
+        <PinnedItemInfo parentTag="com.learning.web.user.UsersForm" memberName="username" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/learning_new$Tomcat_8_5_84.ic" NAME="Tomcat 8.5.84 Coverage Results" MODIFIED="1680526749326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

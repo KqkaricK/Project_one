@@ -40,6 +40,17 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-3 control-label">
+                            Роль:
+                        </label>
+                        <div class="col-sm-3">
+                            <select type="text" th:field="*{userRole}" th:class="${#fields.hasErrors('userRole')}? 'fieldError form-control' : 'form-control'">
+                                <option value="ROLE_ADMIN">Админ</option>
+                                <option value="ROLE_USER">Пользователь</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-3 control-label" title="Вкл/Выкл" for="enabled">
                             Вкл/Выкл
                         </label>

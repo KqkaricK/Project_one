@@ -5,39 +5,40 @@
       <head>
             <title>Learning</title>
             <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-            <script type="application/javascript" src="/js/jquery-3.1.1.min.js"/>
+            <script type="application/javascript" src="/js/jquery-3.1.1.min.js"></script>
 
             <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
             <link rel="stylesheet" type="text/css" href="/css/bootstrap-theme.min.css"/>
             <link rel="stylesheet" type="text/css" href="/css/awesome/css/font-awesome.min.css"/>
             <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+            <link rel="stylesheet" type="text/css" href="/bootstrap-icons-1.10.4/font/bootstrap-icons.css"/>
 
-            <script src="/js/bootstrap.js" />
+            <script src="/js/bootstrap.js"></script>
+
+            <meta charset="utf-8"/>
 
       </head>
       <body>
       <nav class="navbar navbar-default" role="navigation">
 
             <ul class="nav navbar-nav">
-                  <li><a sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')" href="/user/users.html">Пользователи</a></li>
+                  <li><a sec:authorize="hasRole('ROLE_ADMIN')" href="/user/users.html">Пользователи</a></li>
             </ul>
 
             <ul class="nav navbar-nav">
-                  <li><a sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')" href="/blog_add.html">Добавить Статью</a></li>
+                  <li><a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EDITOR')" href="/post/posts.html">Посты</a></li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-right">
-                  <li><a sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')"
-                         href="/logout.html">Выход <span sec:authentication="name"></span></a></li>
-            </ul>
       </nav>
 
+      
       <div class="container">
             <header class="d-flex justify-content-center bd-highlight mb-3">
                   <ul class="nav nav-tabs">
                         <li class="nav-item"><a href="/index.html" class="nav-link" aria-current="page">Главная</a></li>
                         <li class="nav-item"><a href="/blog.html" class="nav-link">Блог</a></li>
-                        <li class="nav-item"><a href="/login.html" class="nav-link">Вход</a></li>
+                        <li sec:authorize="!isAuthenticated()" class="nav-item"><a href="/login.html" class="nav-link">Вход</a></li>
+                        <li sec:authorize="isAuthenticated()" class="nav-item"><a href="/logout.html" class="nav-link">Выход <span sec:authentication="name"></span></a></li>
                   </ul>
             </header>
       </div>

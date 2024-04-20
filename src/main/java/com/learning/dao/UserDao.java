@@ -9,7 +9,8 @@ public interface UserDao extends UserDetailsService {
     SimplePaginatedList getUsers(UsersForm form);
     User getUserByUserId(Integer userId);
     User getUserByEmail(String email);
-    void saveOrUpdate(User user);
+    public User getUserByUsername(String username);
+    User saveOrUpdate(User user);
     void deleteUser(Integer userId);
     boolean isUniqueUser(User user);
 }

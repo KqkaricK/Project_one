@@ -4,7 +4,7 @@ package com.learning.web.post;
 
 import com.learning.entity.Post;
 import com.learning.entity.User;
-import com.learning.post.PostRepository;
+import com.learning.dao.PostDao;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -16,7 +16,7 @@ import org.springframework.validation.Validator;
 @Repository("postEditValidator")
 public class PostEditValidator implements Validator {
     @Autowired
-    private PostRepository postRepository;
+    private PostDao postDao;
 
     @Override
     public boolean supports(Class<?> aClass) {
@@ -27,6 +27,8 @@ public class PostEditValidator implements Validator {
     public void validate(Object o, Errors errors) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = (User)authentication.getPrincipal();
+        if (!user.isAdmin())
+            errors.reject("name", "Доступно для редактирования только администратору");
         Post post = (Post)o;
         if (StringUtils.isBlank(post.getTitle()))
             errors.reject("title", "Заголовок не может быть пустым!");

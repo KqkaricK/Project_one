@@ -38,8 +38,10 @@ public class UserEditValidator implements Validator {
             }
         }
         if (StringUtils.isBlank(user.getPassword()))
-            errors.reject("username", "Пароль пользователя не модет быть пустым!");
+            errors.reject("password", "Пароль пользователя не модет быть пустым!");
         if (StringUtils.isBlank(user.getEmail()))
-            errors.reject("username", "Email пользователя не модет быть пустым!");
+            errors.reject("email", "Email пользователя не модет быть пустым!");
+        if (StringUtils.isBlank(user.getUserRole()))
+            errors.reject("userRole", "Роль пользователя не определена!");
     }
 }
